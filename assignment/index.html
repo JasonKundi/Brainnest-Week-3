@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock! Paper! Scissors!</title>
+  </head>
+
+  <body>
+    <script>
+      const computerPlay = () => {
+        let computerChoices = ["Rock", "Paper", "Scissors"];
+        let choice =
+          computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        return choice;
+        // Alternative solution ->
+        // let computerChoice = Math.random();
+        // if (computerChoice < 0.34) {
+        //   computerChoice = "Rock";
+        // } else if (computerChoice <= 0.67) {
+        //   computerChoice = "Paper";
+        // } else {
+        //   computerChoice = "Scissors";
+        // }
+        // return computerChoice
+      };
+
+      const playRound = (playerSelection, computerSelection) => {
+        if (playerSelection === computerSelection) {
+          return "Tie!";
+        }
+        if (
+          playerSelection === "rock" ||
+          "Rock" && computerSelection === "Scissors"
+        ) {
+          return "You win! Rock beats Scissors!";
+        }
+        if (
+          playerSelection === "paper" ||
+          "Paper" && computerSelection === "Rock"
+        ) {
+          return "You win! Paper beats Scissors!";
+        }
+        if (
+          playerSelection === "scissors" ||
+          "Scissors" && computerSelection === "Paper"
+        ) {
+          return "You win! Scissors beats Paper!"; 
+        } else return "Computer wins!";
+      };
+
+      const playerSelection = "Rock";
+      const game = computerPlay();
+      console.log(game);
+    </script>
+  </body>
+</html>
