@@ -19,60 +19,37 @@
         let choice =
           computerChoices[Math.floor(Math.random() * computerChoices.length)];
         return choice;
-        // Alternative solution ->
-        // let computerChoice = Math.random();
-        // if (computerChoice < 0.34) {
-        //   computerChoice = "Rock";
-        // } else if (computerChoice <= 0.67) {
-        //   computerChoice = "Paper";
-        // } else {
-        //   computerChoice = "Scissors";
-        // }
-        // return computerChoice
       };
 
       // playRound function compares inputs and returns string with winner
       const playRound = (playerSelection, computerSelection) => {
         if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
           return "Tie!";
-        }
-        if (
+        } else if (
           playerSelection.toLowerCase() === "rock" &&
           computerSelection === "Scissors"
         ) {
           console.log(
-            `You win! ${playerSelection} beats ${computerSelection}!`
+            `You win! ${playerSelection} beats ${computerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
           );
           playerScore++;
-        }
-        if (
+        } else if (
           playerSelection.toLowerCase() === "paper" &&
           computerSelection === "Rock"
         ) {
           console.log(
-            `You win! ${playerSelection} beats ${computerSelection}!`
+            `You win! ${playerSelection} beats ${computerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
           );
           playerScore++;
-        }
-        if (
+        } else if (
           playerSelection.toLowerCase() === "scissors" &&
           computerSelection === "Paper"
         ) {
           console.log(
-            `You win! ${playerSelection} beats ${computerSelection}!`
+            `You win! ${playerSelection} beats ${computerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
           );
-        } else {
-          console.log(
-            `You Lose! ${computerSelection} beats ${playerSelection}!`
-          );
-          computerScore++;
-        }
-        return (
-          "Your score is: " +
-          playerScore +
-          " Computer score is: " +
-          computerScore
-        );
+        } else computerScore++;
+        console.log(`You Lose! ${computerSelection} beats ${playerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`);
       };
 
       const game = () => {
@@ -81,20 +58,17 @@
             "Choose rock, paper, or scissors"
           ).toLowerCase();
           playRound(playerSelection, computerSelection);
-          if (playerScore > computerScore) {
-            console.log(
-              `You beat the computer ${playerScore} out of 5 rounds!`
-            );
-          }
-          if (computerScore > playerScore) {
-            console.log(
-              `Skynet has defeated you ${computerScore} out of 5 rounds...`
-            );
-          }
+        
+        }
+        if (playerScore > computerScore) {
+          console.log(`You beat the computer ${playerScore} out of 5 rounds!`);
+        } else {
+          console.log(
+            `Skynet has defeated you ${computerScore} out of 5 rounds, Your final score was: ${playerScore} to Computer's score of ${computerScore}!`
+          );
         }
       };
 
-      const playerSelection = "paper";
       const computerSelection = computerPlay();
       console.log(game());
     </script>
