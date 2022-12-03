@@ -25,31 +25,23 @@
       const playRound = (playerSelection, computerSelection) => {
         if (playerSelection.toLowerCase() === computerSelection) {
           return "Tie!";
-        } else if (
-          playerSelection.toLowerCase() === "rock" &&
-          computerSelection === "scissors"
+        }
+        if (
+          (playerSelection.toLowerCase() === "rock" &&
+            computerSelection === "scissors") ||
+          (playerSelection.toLowerCase() === "paper" &&
+            computerSelection === "rock") ||
+          (playerSelection.toLowerCase() === "scissors" &&
+            computerSelection === "paper")
         ) {
           console.log(
             `You win! ${playerSelection} beats ${computerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
           );
           playerScore++;
-        } else if (
-          playerSelection.toLowerCase() === "paper" &&
-          computerSelection === "rock"
-        ) {
-          console.log(
-            `You win! ${playerSelection} beats ${computerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
-          );
-          playerScore++;
-        } else if (
-          playerSelection.toLowerCase() === "scissors" &&
-          computerSelection === "paper"
-        ) {
-          console.log(
-            `You win! ${playerSelection} beats ${computerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
-          );
         } else computerScore++;
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`);
+        console.log(
+          `You Lose! ${computerSelection} beats ${playerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
+        );
       };
 
       const game = () => {
@@ -58,7 +50,6 @@
             "Choose rock, paper, or scissors"
           ).toLowerCase();
           playRound(playerSelection, computerPlay());
-        
         }
         if (playerScore > computerScore) {
           console.log(`You beat the computer ${playerScore} out of 5 rounds!`);
@@ -70,7 +61,6 @@
       };
 
       console.log(game());
-
     </script>
   </body>
 </html>
