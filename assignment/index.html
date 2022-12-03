@@ -15,7 +15,7 @@
 
       // computer ranoom choice function
       const computerPlay = () => {
-        let computerChoices = ["Rock", "Paper", "Scissors"];
+        let computerChoices = ["rock", "paper", "scissors"];
         let choice =
           computerChoices[Math.floor(Math.random() * computerChoices.length)];
         return choice;
@@ -23,7 +23,7 @@
 
       // playRound function compares inputs and returns string with winner
       const playRound = (playerSelection, computerSelection) => {
-        if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+        if (playerSelection.toLowerCase() === computerSelection) {
           return "Tie!";
         } else if (
           playerSelection.toLowerCase() === "rock" &&
@@ -57,7 +57,7 @@
           let playerSelection = prompt(
             "Choose rock, paper, or scissors"
           ).toLowerCase();
-          playRound(playerSelection, computerSelection);
+          playRound(playerSelection, computerPlay());
         
         }
         if (playerScore > computerScore) {
@@ -69,7 +69,6 @@
         }
       };
 
-      const computerSelection = computerPlay();
       console.log(game());
     </script>
   </body>
