@@ -27,7 +27,7 @@
           return "Tie!";
         } else if (
           playerSelection.toLowerCase() === "rock" &&
-          computerSelection === "Scissors"
+          computerSelection === "scissors"
         ) {
           console.log(
             `You win! ${playerSelection} beats ${computerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
@@ -35,7 +35,7 @@
           playerScore++;
         } else if (
           playerSelection.toLowerCase() === "paper" &&
-          computerSelection === "Rock"
+          computerSelection === "rock"
         ) {
           console.log(
             `You win! ${playerSelection} beats ${computerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
@@ -43,7 +43,7 @@
           playerScore++;
         } else if (
           playerSelection.toLowerCase() === "scissors" &&
-          computerSelection === "Paper"
+          computerSelection === "paper"
         ) {
           console.log(
             `You win! ${playerSelection} beats ${computerSelection}! Your score is:  ${playerScore}  Computer score is:  ${computerScore}`
@@ -70,6 +70,7 @@
       };
 
       console.log(game());
+
     </script>
   </body>
 </html>
